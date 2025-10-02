@@ -22,6 +22,10 @@ This is a terminal-based implementation of the classic Snake game. Control the s
 - Unix/Linux/macOS (with curses support built-in)
 - Windows (requires `windows-curses` package)
 
+## Quick Start
+
+**Want to get started immediately?** Check out the [QUICKSTART.md](QUICKSTART.md) guide for a streamlined setup process!
+
 ## Installation
 
 ### 1. Clone the repository

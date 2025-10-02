@@ -15,12 +15,15 @@ The modular version splits the code into logical components for better maintaina
 
 ```
 python_snake_game/
-├── snake_game.py              # Original monolithic version
-├── snake_game_modular.py      # Modular version (main game)
-├── game_config.py             # Configuration constants
-├── score_manager.py           # High score persistence
-├── game_renderer.py           # Display and rendering
-└── test_game.py               # Test suite
+├── src/
+│   ├── snake_game.py              # Original monolithic version
+│   ├── snake_game_modular.py      # Modular version (main game)
+│   └── modules/
+│       ├── game_config.py         # Configuration constants
+│       ├── score_manager.py       # High score persistence
+│       └── game_renderer.py       # Display and rendering
+└── tests/
+    └── test_game.py               # Test suite
 ```
 
 ### Module Descriptions
@@ -125,10 +128,10 @@ Modular structure makes it easier to:
 
 ```bash
 # Run the modular version
-python snake_game_modular.py
+python src/snake_game_modular.py
 
 # Or use the original version
-python snake_game.py
+python src/snake_game.py
 ```
 
 Both versions provide identical gameplay and features!
@@ -139,7 +142,7 @@ The test suite (`test_game.py`) works with both versions:
 
 ```bash
 # Test original version
-python test_game.py
+python tests/test_game.py
 
 # Test modular components
 python -c "import game_config; import score_manager; import game_renderer; print('All modules OK')"

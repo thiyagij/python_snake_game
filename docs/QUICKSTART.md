@@ -12,7 +12,7 @@ Get the Snake Game running in just a few commands!
 source venv/bin/activate
 
 # 3. Start playing!
-python snake_game.py
+python src/snake_game.py
 ```
 
 ## For Windows Users
@@ -25,7 +25,7 @@ REM 2. Activate the virtual environment
 venv\Scripts\activate.bat
 
 REM 3. Start playing!
-python snake_game.py
+python src\snake_game.py
 ```
 
 ## Manual Setup (Alternative)
@@ -45,7 +45,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Run the game
-python snake_game.py
+python src/snake_game.py
 ```
 
 ## No Virtual Environment? No Problem!
@@ -57,7 +57,7 @@ If you don't want to use a virtual environment:
 pip3 install -r requirements.txt
 
 # Run the game
-python3 snake_game.py
+python3 src/snake_game.py
 ```
 
 ## Game Controls

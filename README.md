@@ -70,7 +70,7 @@ More gameplay screenshots and animated GIFs will be added here soon!
 - **Pause/Resume** - Pause the game anytime with 'P' key
 - **Speed Progression** - Game speed increases with each level
 
-**For detailed information about advanced features, see [FEATURES.md](FEATURES.md)**
+**For detailed information about advanced features, see [FEATURES.md](docs/FEATURES.md)**
 
 ## Requirements
 
@@ -89,11 +89,11 @@ This project includes a comprehensive CI/CD pipeline using GitHub Actions:
 - ✅ Publishing to GitHub Packages
 - ✅ Documentation deployment to GitHub Pages
 
-**For detailed CI/CD documentation**, see [CI_CD.md](CI_CD.md)
+**For detailed CI/CD documentation**, see [CI_CD.md](docs/CI_CD.md)
 
 ## 🎉 What's New?
 
-This project has been enhanced with new features and improvements! Check out [ENHANCEMENTS.md](ENHANCEMENTS.md) for a complete summary of:
+This project has been enhanced with new features and improvements! Check out [ENHANCEMENTS.md](docs/ENHANCEMENTS.md) for a complete summary of:
 - Pause/Resume functionality
 - Persistent high scores
 - Modular architecture
@@ -102,7 +102,7 @@ This project has been enhanced with new features and improvements! Check out [EN
 
 ## Quick Start
 
-**Want to get started immediately?** Check out the [QUICKSTART.md](QUICKSTART.md) guide for a streamlined setup process!
+**Want to get started immediately?** Check out the [QUICKSTART.md](docs/QUICKSTART.md) guide for a streamlined setup process!
 
 ## Installation
 
@@ -152,7 +152,9 @@ poetry install
 
 **Using Python directly:**
 ```bash
-python snake_game.py
+python src/snake_game.py
+# Or the modular version
+python src/snake_game_modular.py
 ```
 
 **Using Poetry:**
@@ -162,8 +164,8 @@ poetry run snake-game
 
 **Or make it executable and run directly (Unix/Linux/macOS):**
 ```bash
-chmod +x snake_game.py
-./snake_game.py
+chmod +x src/snake_game.py
+./src/snake_game.py
 ```
 
 ### Game Controls
@@ -175,7 +177,7 @@ chmod +x snake_game.py
 - **R**: Restart the game
 - **Q**: Quit the game
 
-**For detailed gameplay instructions and strategies, see [GAMEPLAY.md](GAMEPLAY.md)**
+**For detailed gameplay instructions and strategies, see [GAMEPLAY.md](docs/GAMEPLAY.md)**
 
 ### Game Rules
 
@@ -194,37 +196,43 @@ chmod +x snake_game.py
 
 ```
 python_snake_game/
-├── snake_game.py           # Main game (monolithic version)
-├── snake_game_modular.py   # Modular version
-├── game_config.py          # Game configuration
-├── score_manager.py        # High score persistence
-├── game_renderer.py        # Display rendering
-├── test_game.py            # Test suite
-├── requirements.txt        # Python dependencies
-├── setup.sh                # Unix/Linux/macOS setup script
-├── setup.bat               # Windows setup script
-├── pyproject.toml          # Poetry configuration
-├── README.md               # This file
-├── GAMEPLAY.md             # Detailed gameplay guide
-├── QUICKSTART.md           # Quick start guide
-├── ARCHITECTURE.md         # Architecture documentation
-├── CI_CD.md                # CI/CD documentation
+├── src/                        # Source code
+│   ├── snake_game.py           # Main game (monolithic version)
+│   ├── snake_game_modular.py   # Modular version
+│   └── modules/                # Game modules
+│       ├── game_config.py      # Game configuration
+│       ├── score_manager.py    # High score persistence
+│       └── game_renderer.py    # Display rendering
+├── tests/                      # Test suite
+│   └── test_game.py            # Test suite
+├── docs/                       # Documentation
+│   ├── GAMEPLAY.md             # Detailed gameplay guide
+│   ├── QUICKSTART.md           # Quick start guide
+│   ├── ARCHITECTURE.md         # Architecture documentation
+│   ├── CI_CD.md                # CI/CD documentation
+│   ├── ENHANCEMENTS.md         # Enhancement history
+│   └── FEATURES.md             # Feature documentation
+├── requirements.txt            # Python dependencies
+├── setup.sh                    # Unix/Linux/macOS setup script
+├── setup.bat                   # Windows setup script
+├── pyproject.toml              # Poetry configuration
+├── README.md                   # This file
 └── .github/
     └── workflows/
-        └── ci-cd.yml       # CI/CD pipeline
+        └── ci-cd.yml           # CI/CD pipeline
 ```
 
 ## Code Structure
 
 The game is available in two versions:
 
-**Monolithic Version** (`snake_game.py`):
+**Monolithic Version** (`src/snake_game.py`):
 - Single-file implementation
 - All logic in one well-documented class
 - Perfect for learning and quick understanding
 
-**Modular Version** (`snake_game_modular.py`):
-- Refactored into separate modules
+**Modular Version** (`src/snake_game_modular.py`):
+- Refactored into separate modules in `src/modules/`
 - Better organization for larger projects
 - Demonstrates software architecture principles
 
@@ -240,7 +248,7 @@ Both versions provide identical functionality!
   - Game state management
   - Game over logic
 
-**For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md)**
+**For detailed architecture documentation, see [ARCHITECTURE.md](docs/ARCHITECTURE.md)**
 
 ## Development
 

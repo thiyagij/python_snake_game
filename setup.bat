@@ -134,10 +134,12 @@ echo 1. Activate the virtual environment:
 echo    venv\Scripts\activate.bat
 echo.
 echo 2. Run the game:
-echo    python snake_game.py
+echo    python src\snake_game.py
+echo    # Or the modular version:
+echo    python src\snake_game_modular.py
 echo.
 echo 3. Run tests (optional):
-echo    python test_game.py
+echo    python tests\test_game.py
 echo.
 echo Game controls:
 echo    Arrow Keys   Move

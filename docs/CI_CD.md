@@ -41,7 +41,7 @@ flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statist
 **How to run locally**:
 ```bash
 pip install pytest pytest-cov
-pytest test_game.py -v --cov=snake_game --cov-report=xml --cov-report=term
+pytest tests/test_game.py -v --cov=src --cov-report=xml --cov-report=term
 ```
 
 **Coverage Upload**: Coverage reports from Ubuntu + Python 3.11 are uploaded to Codecov
@@ -199,7 +199,7 @@ This is configured in `pyproject.toml`:
 
 ```toml
 [tool.poetry.scripts]
-snake-game = "snake_game:main_wrapper"
+snake-game = "src.snake_game:main_wrapper"
 ```
 
 ## Local Development
@@ -226,13 +226,13 @@ snake-game = "snake_game:main_wrapper"
 
 ```bash
 # Run tests with poetry
-poetry run pytest test_game.py -v
+poetry run pytest tests/test_game.py -v
 
 # Run with coverage
-poetry run pytest test_game.py -v --cov=snake_game --cov-report=term
+poetry run pytest tests/test_game.py -v --cov=src --cov-report=term
 
 # Run the legacy test script
-python test_game.py
+python tests/test_game.py
 ```
 
 ### Running Linters
@@ -262,7 +262,7 @@ ls -la dist/
 poetry run snake-game
 
 # Or directly with Python
-python snake_game.py
+python src/snake_game.py
 ```
 
 ## Continuous Integration Status

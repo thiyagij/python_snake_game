@@ -21,10 +21,10 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Operating System :: OS Independent",
 ]
-packages = [{include = "snake_game.py"}]
+packages = [{include = "src"}]
 
 [tool.poetry.scripts]
-snake-game = "snake_game:main_wrapper"
+snake-game = "src.snake_game:main_wrapper"
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
@@ -40,10 +40,10 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-testpaths = ["test_game.py"]
+testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
-addopts = "-v --cov=snake_game --cov-report=term-missing"
+addopts = "-v --cov=src --cov-report=term-missing"
 
 [tool.flake8]
 max-line-length = 127

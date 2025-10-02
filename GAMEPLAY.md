@@ -4,7 +4,7 @@
 
 ```
                            SNAKE GAME
-              Use Arrow Keys | Q: Quit | R: Restart
+        Arrow Keys: Move | P: Pause | R: Restart | Q: Quit
 
 ┌────────────────────────────────────────────────────────────┐
 │                                                              │
@@ -51,8 +51,11 @@ When you start the game:
 | ↓   | Move down |
 | ←   | Move left |
 | →   | Move right |
+| P   | Pause/Resume game |
 | R   | Restart game |
 | Q   | Quit game |
+
+**Pro Tip**: Use the pause feature (P key) to take a break without losing your progress!
 
 ### Rules
 
@@ -75,7 +78,13 @@ When you start the game:
    - Score is displayed
    - Press R to restart
    - Press Q to quit
-   - High score is saved for the current session
+   - High score is automatically saved to disk and persists across sessions
+
+5. **Pause Feature**
+   - Press P to pause the game at any time
+   - Game state is preserved while paused
+   - Press P again to resume
+   - Perfect for taking breaks or avoiding distractions!
 
 ## Strategy Tips
 
@@ -167,14 +176,17 @@ When you lose:
 └────────────────────────────────────────────────────────────┘
 ```
 
-## World Records (Your Session)
+## High Score Tracking
 
-Your high score is tracked during your gaming session. Try to beat it!
+Your high score is automatically saved and persists across gaming sessions!
+
+The high score is stored in: `~/.snake_game_high_score.json`
 
 Challenge yourself:
 - Can you reach 100 points?
 - Can you reach 500 points?
 - Can you fill half the screen?
+- Can you beat your personal best?
 
 ---
 

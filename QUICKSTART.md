@@ -63,6 +63,7 @@ python3 snake_game.py
 ## Game Controls
 
 - **↑ ↓ ← →** : Move the snake
+- **P** : Pause/Resume game
 - **R** : Restart game
 - **Q** : Quit game
 

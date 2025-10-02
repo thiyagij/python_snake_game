@@ -6,11 +6,56 @@ A classic 2D Snake game implementation that runs entirely in the terminal using 
 
 This is a terminal-based implementation of the classic Snake game. Control the snake to eat food, grow longer, and achieve the highest score possible without hitting the walls or yourself!
 
+## 🎮 Game Preview
+
+### Starting Screen
+```
+┌────────────────────────────────────────────────────────────┐
+│                      SNAKE GAME                            │
+│        Arrow Keys: Move | P: Pause | R: Restart | Q: Quit  │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│                                                            │
+│                         Ooo                                │
+│                                                            │
+│                              *                             │
+│                                                            │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+Score: 0                                      High Score: 0
+```
+
+### Mid-Game Action
+```
+┌────────────────────────────────────────────────────────────┐
+│                      SNAKE GAME                            │
+│        Arrow Keys: Move | P: Pause | R: Restart | Q: Quit  │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│              Oooooo                                        │
+│              oooooo                                        │
+│                 ooo                                        │
+│     *                                                      │
+│                                                            │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+Score: 70                                    High Score: 150
+```
+
+### 📹 Demo Video
+
+Coming soon! Watch gameplay footage and tips.
+
+### 🖼️ Screenshots & GIFs
+
+More gameplay screenshots and animated GIFs will be added here soon!
+
 ## Features
 
 - **Terminal-based graphics** using curses library
 - **Smooth snake movement** with arrow key controls
-- **Score tracking** with high score persistence during session
+- **Score tracking** with persistent high score saved to disk
+- **Pause/Resume functionality** for interruption-free gaming
 - **Collision detection** for walls and self
 - **Random food generation**
 - **Game over and restart functionality**
@@ -104,6 +149,7 @@ chmod +x snake_game.py
 ### Game Controls
 
 - **Arrow Keys**: Control snake direction (Up, Down, Left, Right)
+- **P**: Pause/Resume the game
 - **R**: Restart the game
 - **Q**: Quit the game
 
@@ -163,30 +209,126 @@ The code follows Python best practices:
 
 ### Terminal size issues
 
-If the game doesn't display correctly, ensure your terminal window is large enough (recommended: at least 80x24 characters).
+**Problem**: Game doesn't display correctly or crashes on startup.
+
+**Solution**: Ensure your terminal window is large enough:
+- **Minimum**: 80 columns × 24 rows
+- **Recommended**: 100 columns × 30 rows or larger
+
+To check your terminal size:
+```bash
+# Unix/Linux/macOS
+echo "Columns: $(tput cols), Rows: $(tput lines)"
+
+# Windows PowerShell
+echo "Columns: $Host.UI.RawUI.WindowSize.Width, Rows: $Host.UI.RawUI.WindowSize.Height"
+```
 
 ### Windows issues
 
-If you encounter issues on Windows, make sure you have installed the `windows-curses` package:
+**Problem**: "No module named '_curses'" or curses-related errors on Windows.
+
+**Solution**: Install the `windows-curses` package:
 
 ```bash
 pip install windows-curses
 ```
 
-### Curses not available
+If you still have issues, try:
+```bash
+pip uninstall windows-curses
+pip install --upgrade windows-curses
+```
 
-If you get a "No module named '_curses'" error on Unix/Linux:
+### Curses not available on Unix/Linux
+
+**Problem**: "No module named '_curses'" error on Unix/Linux.
+
+**Solution**: Install Python development headers:
 
 ```bash
 # On Ubuntu/Debian
+sudo apt-get update
 sudo apt-get install python3-dev
 
-# On Fedora/RHEL
+# On Fedora/RHEL/CentOS
 sudo yum install python3-devel
 
+# On Arch Linux
+sudo pacman -S python
+
 # On macOS
-# curses should be included by default
+# curses should be included by default with Python
 ```
+
+### Python version issues
+
+**Problem**: Game doesn't run or has import errors.
+
+**Solution**: Ensure you're using Python 3.8.1 or higher:
+
+```bash
+python --version
+# or
+python3 --version
+```
+
+If your version is older, install a newer version from [python.org](https://www.python.org/downloads/).
+
+### Performance issues
+
+**Problem**: Game is laggy or unresponsive.
+
+**Solutions**:
+- Close other applications consuming CPU/memory
+- Use a lightweight terminal emulator (e.g., xterm on Linux)
+- Reduce terminal font size slightly
+- Ensure your terminal supports hardware acceleration
+
+### Score file issues
+
+**Problem**: High score not saving or loading.
+
+**Details**: High score is saved to `~/.snake_game_high_score.json`
+
+**Solution**: Check file permissions:
+```bash
+# Unix/Linux/macOS
+ls -l ~/.snake_game_high_score.json
+chmod 644 ~/.snake_game_high_score.json
+```
+
+### Keys not responding
+
+**Problem**: Arrow keys or other controls don't work.
+
+**Solutions**:
+- Make sure the terminal window has focus
+- Check if your terminal emulator supports arrow keys in curses mode
+- Try a different terminal emulator
+- On some systems, NumLock state might affect arrow keys
+
+### Game exits immediately
+
+**Problem**: Game starts and exits right away.
+
+**Solutions**:
+- Check terminal size (must be at least 80×24)
+- Ensure Python curses module is properly installed
+- Run the test suite: `python test_game.py`
+- Check error messages in the terminal
+
+### Still having issues?
+
+If none of these solutions work:
+1. Run the test suite: `python test_game.py`
+2. Check the [Issues](https://github.com/thiyagij/python_snake_game/issues) page
+3. Create a new issue with:
+   - Your OS and version
+   - Python version
+   - Terminal emulator
+   - Error messages
+   - Output from test_game.py
 
 ## Contributing
 

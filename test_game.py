@@ -6,7 +6,6 @@ Validates game logic without running the full curses interface.
 
 import sys
 from collections import deque
-import random
 
 
 def test_snake_mechanics():
@@ -62,6 +61,26 @@ def test_imports():
     print("\nTesting module imports...")
     print("-" * 50)
     
+    import curses
+    print("✓ curses module available")
+    
+    import snake_game
+    print("✓ snake_game module can be imported")
+    
+    # Check required components
+    assert hasattr(snake_game, 'SnakeGame'), "SnakeGame class missing"
+    assert hasattr(snake_game, 'main'), "main function missing"
+    print("✓ Required classes and functions present")
+    
+    print("-" * 50)
+    print("All imports successful! ✓")
+
+
+def test_imports_legacy():
+    """Legacy test function for backward compatibility with main() runner."""
+    print("\nTesting module imports...")
+    print("-" * 50)
+    
     try:
         import curses
         print("✓ curses module available")
@@ -100,7 +119,7 @@ def main():
     
     try:
         # Test imports first
-        if not test_imports():
+        if not test_imports_legacy():
             return 1
         
         print()

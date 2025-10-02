@@ -6,7 +6,6 @@ A classic snake game implementation using Python's curses library.
 
 import curses
 import random
-import time
 from collections import deque
 
 
@@ -252,10 +251,15 @@ def main(stdscr):
     game.run()
 
 
-if __name__ == "__main__":
+def main_wrapper():
+    """Wrapper function for poetry script entry point."""
     try:
         curses.wrapper(main)
     except KeyboardInterrupt:
         print("\nGame terminated by user.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+if __name__ == "__main__":
+    main_wrapper()

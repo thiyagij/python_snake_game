@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "python-snake-game"
+version = "1.0.0"
+description = "A classic 2D Snake game implementation that runs entirely in the terminal using Python's curses library"
+authors = ["Thiyagi J <thiyagij@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/thiyagij/python_snake_game"
+repository = "https://github.com/thiyagij/python_snake_game"
+keywords = ["snake", "game", "terminal", "curses", "retro"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Games/Entertainment",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+packages = [{include = "snake_game.py"}]
+
+[tool.poetry.scripts]
+snake-game = "snake_game:main_wrapper"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+windows-curses = {version = "^2.3.0", markers = "sys_platform == 'win32'"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["test_game.py"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --cov=snake_game --cov-report=term-missing"
+
+[tool.flake8]
+max-line-length = 127
+exclude = [".git", "__pycache__", "venv", "env", "build", "dist"]
+ignore = ["E203", "W503"]

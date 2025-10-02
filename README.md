@@ -80,6 +80,15 @@ This project includes a comprehensive CI/CD pipeline using GitHub Actions:
 
 **For detailed CI/CD documentation**, see [CI_CD.md](CI_CD.md)
 
+## 🎉 What's New?
+
+This project has been enhanced with new features and improvements! Check out [ENHANCEMENTS.md](ENHANCEMENTS.md) for a complete summary of:
+- Pause/Resume functionality
+- Persistent high scores
+- Modular architecture
+- Enhanced documentation
+- Complete CI/CD pipeline
+
 ## Quick Start
 
 **Want to get started immediately?** Check out the [QUICKSTART.md](QUICKSTART.md) guide for a streamlined setup process!

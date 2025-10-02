@@ -56,7 +56,7 @@ jobs:
       
       - name: Run tests
         run: |
-          pytest test_game.py -v --cov=snake_game --cov-report=xml --cov-report=term
+          pytest tests/test_game.py -v --cov=src --cov-report=xml --cov-report=term
       
       - name: Upload coverage to Codecov
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.11'
@@ -144,9 +144,9 @@ jobs:
         run: |
           mkdir -p _site
           cp README.md _site/index.md
-          cp GAMEPLAY.md _site/gameplay.md
-          cp QUICKSTART.md _site/quickstart.md
-          cp CI_CD.md _site/ci-cd.md
+          cp docs/GAMEPLAY.md _site/gameplay.md
+          cp docs/QUICKSTART.md _site/quickstart.md
+          cp docs/CI_CD.md _site/ci-cd.md
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

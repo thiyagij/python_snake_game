@@ -5,7 +5,11 @@ Validates game logic without running the full curses interface.
 """
 
 import sys
+import os
 from collections import deque
+
+# Add parent directory to path to import from src
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 def test_snake_mechanics():
@@ -78,7 +82,7 @@ def test_advanced_features():
     print("✓ Test 7: Obstacle collision detection")
 
     # Test 8: Snake skins
-    import snake_game
+    from src import snake_game
     skins = snake_game.SnakeGame.SKINS
     assert 'classic' in skins, "Classic skin should exist"
     assert 'blocks' in skins, "Blocks skin should exist"
@@ -108,7 +112,7 @@ def test_imports():
     import curses
     print("✓ curses module available")
 
-    import snake_game
+    from src import snake_game
     print("✓ snake_game module can be imported")
 
     # Check required components
@@ -134,7 +138,7 @@ def test_imports_legacy():
         return False
 
     try:
-        import snake_game
+        from src import snake_game
         print("✓ snake_game module can be imported")
 
         # Check required components
@@ -180,7 +184,8 @@ def main():
         print("=" * 50)
         print()
         print("The game is ready to play!")
-        print("Run: python snake_game.py")
+        print("Run: python src/snake_game.py")
+        print("Or: python src/snake_game_modular.py")
         print()
 
         return 0

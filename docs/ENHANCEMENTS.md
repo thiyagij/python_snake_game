@@ -153,22 +153,27 @@ test_game.py            # Tests
 
 ### After
 ```
-snake_game.py           # Original (308 lines with new features)
-snake_game_modular.py   # Modular version
-game_config.py          # Configuration
-score_manager.py        # Score persistence
-game_renderer.py        # Rendering
-test_game.py            # Tests
-README.md               # Enhanced with previews
-GAMEPLAY.md             # Enhanced guide
-QUICKSTART.md           # Enhanced guide
-ARCHITECTURE.md         # NEW! Architecture docs
-CI_CD.md                # Enhanced CI/CD docs
-ENHANCEMENTS.md         # This file!
-setup.sh                # Enhanced with checks
-setup.bat               # Enhanced with checks
+src/
+  snake_game.py           # Original (308 lines with new features)
+  snake_game_modular.py   # Modular version
+  modules/
+    game_config.py        # Configuration
+    score_manager.py      # Score persistence
+    game_renderer.py      # Rendering
+tests/
+  test_game.py            # Tests
+docs/
+  GAMEPLAY.md             # Enhanced guide
+  QUICKSTART.md           # Enhanced guide
+  ARCHITECTURE.md         # NEW! Architecture docs
+  CI_CD.md                # Enhanced CI/CD docs
+  ENHANCEMENTS.md         # This file!
+  FEATURES.md             # Feature documentation
+README.md                 # Enhanced with previews
+setup.sh                  # Enhanced with checks
+setup.bat                 # Enhanced with checks
 .github/workflows/
-  ci-cd.yml             # Complete pipeline
+  ci-cd.yml               # Complete pipeline
 ```
 
 ## 🎮 User Experience Improvements

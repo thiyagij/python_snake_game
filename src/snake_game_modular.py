@@ -5,17 +5,22 @@ A classic snake game implementation using Python's curses library.
 This is a refactored modular version that imports from separate modules.
 """
 
+import sys
+import os
 import curses
 import random
 from collections import deque
 
+# Add the current directory to the path to import modules
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 # Import modular components
-from game_config import (
+from modules.game_config import (
     REFRESH_RATE_MS, INITIAL_SNAKE_LENGTH, FOOD_POINTS,
     SCORE_FILE, WINDOW_MARGIN_TOP, WINDOW_MARGIN_BOTTOM, WINDOW_MARGIN_HORIZONTAL
 )
-from score_manager import ScoreManager
-from game_renderer import GameRenderer
+from modules.score_manager import ScoreManager
+from modules.game_renderer import GameRenderer
 
 
 class SnakeGame:

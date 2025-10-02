@@ -4,7 +4,7 @@ Handles all drawing and display operations.
 """
 
 import curses
-from game_config import SNAKE_HEAD_CHAR, SNAKE_BODY_CHAR, FOOD_CHAR
+from .game_config import SNAKE_HEAD_CHAR, SNAKE_BODY_CHAR, FOOD_CHAR
 
 
 class GameRenderer:

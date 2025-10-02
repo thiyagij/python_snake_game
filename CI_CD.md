@@ -110,6 +110,18 @@ The workflow requires the following permissions (configured in the workflow file
 - `id-token: write` - For GitHub Pages deployment
 - `packages: write` - For publishing to GitHub Packages
 
+### GitHub Secrets
+
+For package publishing to work, configure these secrets:
+
+**Optional Secrets** (for package publishing):
+1. Go to repository Settings → Secrets and variables → Actions
+2. Add the following secrets:
+   - `PYPI_USERNAME` - Your PyPI username
+   - `PYPI_PASSWORD` - Your PyPI password or token
+
+**Note**: Package publishing will be skipped if secrets are not configured. All other pipeline jobs (lint, test, build, deploy docs) work without secrets.
+
 ### GitHub Pages Setup
 
 To enable GitHub Pages deployment:
@@ -119,7 +131,7 @@ To enable GitHub Pages deployment:
    - Source: GitHub Actions
 3. Save changes
 
-The site will be automatically deployed on pushes to the main branch.
+The documentation site will be automatically deployed on pushes to the main branch.
 
 ## Package Management with Poetry
 

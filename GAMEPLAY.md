@@ -60,6 +60,8 @@ When you start the game:
 | R   | Restart game |
 | Q   | Quit game |
 
+**Pro Tip**: Use the pause feature (P key) to take a break without losing your progress!
+
 ### Rules
 
 1. **Movement**
@@ -218,14 +220,17 @@ When you lose:
 └────────────────────────────────────────────────────────────┘
 ```
 
-## World Records (Your Session)
+## High Score Tracking
 
-Your high score is tracked during your gaming session. Try to beat it!
+Your high score is automatically saved and persists across gaming sessions!
+
+The high score is stored in: `~/.snake_game_high_score.json`
 
 Challenge yourself:
 - Can you reach 100 points?
 - Can you reach 500 points?
 - Can you fill half the screen?
+- Can you beat your personal best?
 
 ---
 

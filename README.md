@@ -169,17 +169,43 @@ chmod +x snake_game.py
 
 ```
 python_snake_game/
-├── snake_game.py       # Main game file with all game logic
-├── requirements.txt    # Python dependencies
-├── README.md          # This file
-├── .gitignore         # Git ignore rules
-└── venv/              # Virtual environment (created after setup)
+├── snake_game.py           # Main game (monolithic version)
+├── snake_game_modular.py   # Modular version
+├── game_config.py          # Game configuration
+├── score_manager.py        # High score persistence
+├── game_renderer.py        # Display rendering
+├── test_game.py            # Test suite
+├── requirements.txt        # Python dependencies
+├── setup.sh                # Unix/Linux/macOS setup script
+├── setup.bat               # Windows setup script
+├── pyproject.toml          # Poetry configuration
+├── README.md               # This file
+├── GAMEPLAY.md             # Detailed gameplay guide
+├── QUICKSTART.md           # Quick start guide
+├── ARCHITECTURE.md         # Architecture documentation
+├── CI_CD.md                # CI/CD documentation
+└── .github/
+    └── workflows/
+        └── ci-cd.yml       # CI/CD pipeline
 ```
 
 ## Code Structure
 
-The game is organized into a single, well-documented class:
+The game is available in two versions:
 
+**Monolithic Version** (`snake_game.py`):
+- Single-file implementation
+- All logic in one well-documented class
+- Perfect for learning and quick understanding
+
+**Modular Version** (`snake_game_modular.py`):
+- Refactored into separate modules
+- Better organization for larger projects
+- Demonstrates software architecture principles
+
+Both versions provide identical functionality!
+
+**Main Components**:
 - **SnakeGame**: Main game class that handles:
   - Game initialization and setup
   - Snake movement and collision detection
@@ -188,6 +214,8 @@ The game is organized into a single, well-documented class:
   - Input handling
   - Game state management
   - Game over logic
+
+**For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md)**
 
 ## Development
 

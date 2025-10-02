@@ -1,0 +1,9 @@
+# Python Snake Game Requirements
+# This game uses only Python standard library modules
+# No external dependencies required
+
+# The game uses the curses library which is included in Python standard library
+# on Unix/Linux/macOS systems.
+
+# For Windows users, install windows-curses:
+windows-curses>=2.3.0; sys_platform == 'win32'

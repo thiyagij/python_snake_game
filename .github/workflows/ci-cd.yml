@@ -157,8 +157,7 @@ jobs:
           cp GAMEPLAY.md docs/gameplay.md
           cp QUICKSTART.md docs/quickstart.md
           
-          # Create a simple index.html
-          cat > docs/index.html << 'EOF'
+          cat > docs/index.html << 'HTMLEOF'
           <!DOCTYPE html>
           <html lang="en">
           <head>
@@ -217,42 +216,26 @@ jobs:
           </head>
           <body>
             <div class="container">
-              <h1>🐍 Python Snake Game</h1>
-              <p>A classic 2D Snake game implementation that runs entirely in the terminal using Python's curses library.</p>
-              
-              <div class="links">
-                <a href="https://github.com/thiyagij/python_snake_game" class="link-card">
-                  <h3>📦 GitHub Repository</h3>
-                  <p>View the source code and contribute</p>
-                </a>
-                <a href="gameplay.html" class="link-card">
-                  <h3>🎮 Gameplay Guide</h3>
-                  <p>Learn how to play and master the game</p>
-                </a>
-                <a href="quickstart.html" class="link-card">
-                  <h3>🚀 Quick Start</h3>
-                  <p>Get started in minutes</p>
-                </a>
-              </div>
-              
+              <h1>Python Snake Game</h1>
+              <p>A classic 2D Snake game implementation that runs entirely in the terminal.</p>
               <h2>Features</h2>
               <ul>
                 <li>Terminal-based graphics using curses library</li>
                 <li>Smooth snake movement with arrow key controls</li>
                 <li>Score tracking with high score persistence</li>
                 <li>Collision detection for walls and self</li>
-                <li>Cross-platform support (Windows, macOS, Linux)</li>
+                <li>Cross-platform support</li>
               </ul>
-              
-              <h2>Quick Start</h2>
-              <pre><code>git clone https://github.com/thiyagij/python_snake_game.git
-cd python_snake_game
-pip install -r requirements.txt
-python snake_game.py</code></pre>
+              <h2>Documentation</h2>
+              <ul>
+                <li><a href="index.md">README</a></li>
+                <li><a href="gameplay.md">Gameplay Guide</a></li>
+                <li><a href="quickstart.md">Quick Start</a></li>
+              </ul>
             </div>
           </body>
           </html>
-          EOF
+          HTMLEOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

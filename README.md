@@ -52,6 +52,7 @@ More gameplay screenshots and animated GIFs will be added here soon!
 
 ## Features
 
+### Core Features
 - **Terminal-based graphics** using curses library
 - **Smooth snake movement** with arrow key controls
 - **Score tracking** with persistent high score saved to disk
@@ -60,6 +61,16 @@ More gameplay screenshots and animated GIFs will be added here soon!
 - **Random food generation**
 - **Game over and restart functionality**
 - **Clean, modular code** with proper documentation
+
+### Advanced Features ✨
+- **Progressive Level System** - Difficulty increases as you score more points
+- **Dynamic Obstacles** - Walls appear at higher levels to increase challenge
+- **Multiple Snake Skins** - Choose from 4 different visual styles (classic, blocks, arrows, dots)
+- **Persistent Leaderboard** - Top 10 scores saved across sessions with timestamps
+- **Pause/Resume** - Pause the game anytime with 'P' key
+- **Speed Progression** - Game speed increases with each level
+
+**For detailed information about advanced features, see [FEATURES.md](FEATURES.md)**
 
 ## Requirements
 
@@ -159,6 +170,8 @@ chmod +x snake_game.py
 
 - **Arrow Keys**: Control snake direction (Up, Down, Left, Right)
 - **P**: Pause/Resume the game
+- **S**: Change snake skin (cycle through available skins)
+- **L**: View leaderboard (also available at game over)
 - **R**: Restart the game
 - **Q**: Quit the game
 
@@ -166,13 +179,16 @@ chmod +x snake_game.py
 
 ### Game Rules
 
-1. The snake starts with a length of 3 segments
+1. The snake starts with a length of 3 segments at Level 1
 2. Use arrow keys to move the snake
 3. Eat the food (`*`) to grow longer and increase your score
 4. Each food eaten gives you 10 points
-5. Avoid hitting the walls or your own body
-6. The game ends when you collide with a wall or yourself
-7. Try to achieve the highest score!
+5. Every 50 points, you advance to the next level
+6. Higher levels increase game speed and add obstacles (#)
+7. Avoid hitting the walls, obstacles, or your own body
+8. The game ends when you collide with a wall, obstacle, or yourself
+9. Your top 10 scores are saved to the leaderboard
+10. Try to achieve the highest score!
 
 ## Project Structure
 

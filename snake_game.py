@@ -6,17 +6,22 @@ A classic snake game implementation using Python's curses library.
 
 import curses
 import random
+import json
+import os
 from collections import deque
 
 
 class SnakeGame:
     """Main Snake Game class handling game logic and rendering."""
     
+    SCORE_FILE = os.path.expanduser("~/.snake_game_high_score.json")
+    
     def __init__(self, stdscr):
         """Initialize the game with curses screen."""
         self.stdscr = stdscr
         self.score = 0
-        self.high_score = 0
+        self.high_score = self.load_high_score()
+        self.paused = False
         
         # Setup curses
         curses.curs_set(0)  # Hide cursor
@@ -35,6 +40,25 @@ class SnakeGame:
         
         # Initialize game state
         self.reset_game()
+    
+    def load_high_score(self):
+        """Load high score from file."""
+        try:
+            if os.path.exists(self.SCORE_FILE):
+                with open(self.SCORE_FILE, 'r') as f:
+                    data = json.load(f)
+                    return data.get('high_score', 0)
+        except Exception:
+            pass
+        return 0
+    
+    def save_high_score(self):
+        """Save high score to file."""
+        try:
+            with open(self.SCORE_FILE, 'w') as f:
+                json.dump({'high_score': self.high_score}, f)
+        except Exception:
+            pass
         
     def reset_game(self):
         """Reset game state for a new game."""
@@ -76,7 +100,7 @@ class SnakeGame:
         self.stdscr.addstr(0, self.width // 2 - len(title) // 2, title, curses.A_BOLD)
         
         # Instructions
-        instructions = "Use Arrow Keys | Q: Quit | R: Restart"
+        instructions = "Arrow Keys: Move | P: Pause | R: Restart | Q: Quit"
         self.stdscr.addstr(1, self.width // 2 - len(instructions) // 2, instructions)
         
         # Score
@@ -85,6 +109,11 @@ class SnakeGame:
         
         high_score_text = f"High Score: {self.high_score}"
         self.stdscr.addstr(self.height - 2, self.width - len(high_score_text) - 2, high_score_text)
+        
+        # Pause indicator
+        if self.paused:
+            pause_text = "*** PAUSED ***"
+            self.stdscr.addstr(self.height - 1, self.width // 2 - len(pause_text) // 2, pause_text, curses.A_BOLD)
         
         # Draw border
         self.window.border()
@@ -113,9 +142,18 @@ class SnakeGame:
         if key in [ord('q'), ord('Q')]:
             return False
             
+        # Check for pause/resume
+        if key in [ord('p'), ord('P')]:
+            self.paused = not self.paused
+            return True
+            
         # Check for restart
         if key in [ord('r'), ord('R')]:
             self.reset_game()
+            return True
+        
+        # Don't update direction if paused
+        if self.paused:
             return True
         
         # Update direction (prevent 180-degree turns)
@@ -160,6 +198,10 @@ class SnakeGame:
     
     def update(self):
         """Update game state."""
+        # Don't update if paused
+        if self.paused:
+            return True
+        
         new_head = self.move_snake()
         
         # Check collision
@@ -239,6 +281,7 @@ class SnakeGame:
                 # Update high score
                 if self.score > self.high_score:
                     self.high_score = self.score
+                    self.save_high_score()
                 
                 # Game over
                 if not self.game_over_screen():

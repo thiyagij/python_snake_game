@@ -4,34 +4,37 @@
 
 ```
                            SNAKE GAME
-              Use Arrow Keys | Q: Quit | R: Restart
+    Arrow Keys | Q: Quit | R: Restart | P: Pause | S: Skin
 
 ┌────────────────────────────────────────────────────────────┐
 │                                                              │
-│                                                              │
+│                         #                                    │
 │                                                              │
 │                                                              │
 │                         Oooo                                 │
 │                                                              │
 │                              *                               │
 │                                                              │
-│                                                              │
+│                    #                                         │
 │                                                              │
 │                                                              │
 │                                                              │
 └────────────────────────────────────────────────────────────┘
 
-Score: 0                                        High Score: 0
+Score: 40 | Level: 2 | Skin: classic      High Score: 120
 ```
 
 ## Understanding the Screen
 
 - **Border**: The game area boundary (don't hit it!)
-- **Snake Head**: `O` (capital O)
-- **Snake Body**: `o` (lowercase o)
+- **Snake Head**: `O` (varies with skin)
+- **Snake Body**: `o` (varies with skin)
 - **Food**: `*` (asterisk)
+- **Obstacles**: `#` (appear at level 3+)
 - **Score**: Displayed at bottom left
-- **High Score**: Displayed at bottom right
+- **Level**: Current difficulty level
+- **Skin**: Current snake appearance
+- **High Score**: All-time high score (persisted)
 
 ## Gameplay Mechanics
 
@@ -51,6 +54,9 @@ When you start the game:
 | ↓   | Move down |
 | ←   | Move left |
 | →   | Move right |
+| P   | Pause/Resume game |
+| S   | Change snake skin |
+| L   | View leaderboard |
 | R   | Restart game |
 | Q   | Quit game |
 
@@ -60,6 +66,7 @@ When you start the game:
    - Snake continuously moves in the current direction
    - Press arrow keys to change direction
    - Cannot make 180-degree turns (e.g., can't go left if moving right)
+   - Use P to pause at any time
 
 2. **Eating Food**
    - Move the snake head over the food (`*`)
@@ -67,15 +74,41 @@ When you start the game:
    - Score increases by 10 points
    - New food appears at a random location
 
-3. **Collision**
+3. **Level Progression**
+   - Start at Level 1
+   - Every 50 points advances you to the next level
+   - Game speed increases with each level
+   - Obstacles (`#`) appear starting at Level 3
+   - Each level adds 2 more obstacles
+
+4. **Collision**
    - Hitting the border = Game Over
    - Hitting your own body = Game Over
+   - Hitting an obstacle = Game Over
 
-4. **Game Over**
-   - Score is displayed
+5. **Game Over**
+   - Final score and level are displayed
+   - Score is automatically saved to leaderboard
+   - Press L to view leaderboard
    - Press R to restart
    - Press Q to quit
-   - High score is saved for the current session
+   - High score persists across sessions
+
+## Snake Skins
+
+Choose from 4 different visual styles by pressing 'S':
+
+1. **Classic** - Traditional snake appearance
+   - Head: `O`  Body: `o`
+
+2. **Blocks** - Solid block style
+   - Head: `█`  Body: `▓`
+
+3. **Arrows** - Directional arrow style
+   - Head: `>`  Body: `-`
+
+4. **Dots** - Circular dot style
+   - Head: `●`  Body: `○`
 
 ## Strategy Tips
 
@@ -85,13 +118,31 @@ When you start the game:
 4. **Create Patterns**: Move in patterns to avoid tangling yourself
 5. **Don't Panic**: Smooth, deliberate movements are better than frantic ones
 6. **Watch Your Tail**: As you grow, your tail becomes your biggest enemy
+7. **Navigate Obstacles**: Plan your route around obstacles at higher levels
+8. **Use Pause**: Press P to pause and plan your next moves
+9. **Speed Management**: Be prepared for faster gameplay at higher levels
+10. **Leaderboard Goals**: Check the leaderboard (L) to see what score to beat
 
 ## Scoring
 
 - Each food eaten: **+10 points**
+- Level advancement: Every **50 points**
 - No time bonus
 - No penalty for length
-- Goal: Achieve the highest score possible!
+- Goal: Achieve the highest score possible and make it to the leaderboard!
+
+## Leaderboard
+
+- Top 10 scores are saved permanently
+- Each entry shows:
+  - Rank (1-10)
+  - Score
+  - Level reached
+  - Date and time achieved
+- Access leaderboard:
+  - During game: Press L
+  - After game over: Press L
+- Challenge yourself to reach the top!
 
 ## Example Game Progression
 

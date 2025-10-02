@@ -18,9 +18,22 @@ This is a terminal-based implementation of the classic Snake game. Control the s
 
 ## Requirements
 
-- Python 3.6 or higher
+- Python 3.8.1 or higher
 - Unix/Linux/macOS (with curses support built-in)
 - Windows (requires `windows-curses` package)
+
+## CI/CD Pipeline
+
+This project includes a comprehensive CI/CD pipeline using GitHub Actions:
+
+- ✅ Automated linting with flake8
+- ✅ Cross-platform testing (Ubuntu, Windows, macOS)
+- ✅ Multi-version Python testing (3.8-3.12)
+- ✅ Package building with Poetry
+- ✅ Publishing to GitHub Packages
+- ✅ Documentation deployment to GitHub Pages
+
+**For detailed CI/CD documentation**, see [CI_CD.md](CI_CD.md)
 
 ## Quick Start
 
@@ -55,8 +68,15 @@ venv\Scripts\activate
 
 ### 4. Install dependencies
 
+**Option A: Using pip (Simple)**
 ```bash
 pip install -r requirements.txt
+```
+
+**Option B: Using Poetry (Recommended for development)**
+```bash
+pip install poetry
+poetry install
 ```
 
 **Note:** On Unix/Linux/macOS, no external dependencies are needed as curses is part of the standard library. On Windows, the `windows-curses` package will be installed automatically.
@@ -65,12 +85,17 @@ pip install -r requirements.txt
 
 ### Running the Game
 
+**Using Python directly:**
 ```bash
 python snake_game.py
 ```
 
-Or make it executable and run directly (Unix/Linux/macOS):
+**Using Poetry:**
+```bash
+poetry run snake-game
+```
 
+**Or make it executable and run directly (Unix/Linux/macOS):**
 ```bash
 chmod +x snake_game.py
 ./snake_game.py

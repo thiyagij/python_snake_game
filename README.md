@@ -82,6 +82,8 @@ chmod +x snake_game.py
 - **R**: Restart the game
 - **Q**: Quit the game
 
+**For detailed gameplay instructions and strategies, see [GAMEPLAY.md](GAMEPLAY.md)**
+
 ### Game Rules
 
 1. The snake starts with a length of 3 segments

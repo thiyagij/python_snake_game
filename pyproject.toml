@@ -27,7 +27,7 @@ packages = [{include = "snake_game.py"}]
 snake-game = "snake_game:main_wrapper"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8.1"
 windows-curses = {version = "^2.3.0", markers = "sys_platform == 'win32'"}
 
 [tool.poetry.group.dev.dependencies]

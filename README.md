@@ -25,6 +25,8 @@ This is a terminal-based implementation of the classic Snake game. Control the s
 - **Pause/Resume** - Pause the game anytime with 'P' key
 - **Speed Progression** - Game speed increases with each level
 
+**For detailed information about advanced features, see [FEATURES.md](FEATURES.md)**
+
 ## Requirements
 
 - Python 3.8.1 or higher

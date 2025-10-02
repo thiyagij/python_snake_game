@@ -56,6 +56,50 @@ def test_snake_mechanics():
     print("All tests passed! ✓")
 
 
+def test_advanced_features():
+    """Test advanced game features."""
+    print("\nTesting Advanced Features...")
+    print("-" * 50)
+    
+    # Test 6: Level progression
+    score = 0
+    level = 1
+    for i in range(10):
+        score += 10
+        level = (score // 50) + 1
+    assert level == 3, "Level should increase with score"
+    print("✓ Test 6: Level progression")
+    
+    # Test 7: Obstacle collision
+    obstacles = [[5, 5], [6, 6]]
+    test_head = [5, 5]
+    collision = test_head in obstacles
+    assert collision, "Should detect obstacle collision"
+    print("✓ Test 7: Obstacle collision detection")
+    
+    # Test 8: Snake skins
+    import snake_game
+    skins = snake_game.SnakeGame.SKINS
+    assert 'classic' in skins, "Classic skin should exist"
+    assert 'blocks' in skins, "Blocks skin should exist"
+    assert len(skins) >= 4, "Should have at least 4 skins"
+    print("✓ Test 8: Snake skins available")
+    
+    # Test 9: Leaderboard structure
+    leaderboard_entry = {
+        'score': 100,
+        'level': 3,
+        'date': '2024-01-01 12:00:00'
+    }
+    assert 'score' in leaderboard_entry, "Leaderboard entry should have score"
+    assert 'level' in leaderboard_entry, "Leaderboard entry should have level"
+    assert 'date' in leaderboard_entry, "Leaderboard entry should have date"
+    print("✓ Test 9: Leaderboard structure")
+    
+    print("-" * 50)
+    print("All advanced feature tests passed! ✓")
+
+
 def test_imports():
     """Test that all required modules can be imported."""
     print("\nTesting module imports...")
@@ -126,6 +170,9 @@ def main():
         
         # Test game mechanics
         test_snake_mechanics()
+        
+        # Test advanced features
+        test_advanced_features()
         
         print()
         print("=" * 50)

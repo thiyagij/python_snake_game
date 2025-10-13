@@ -6,4 +6,3 @@ You are correct! Based on our chat history, you requested a CI/CD pipeline for y
 - Artifact publishing to GitHub Packages
 - Deployment to GitHub Pages (for static content)
 
-Currently, there is no workflow file present in your repository. Would you like me to create a pull request to add this CI/CD pipeline for you now?
